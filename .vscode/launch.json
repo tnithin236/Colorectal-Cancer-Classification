@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "1. Inspect checkpoints", "type": "debugpy", "request": "launch",
+     "program": "${workspaceFolder}/src/inspect_checkpoint.py", "console": "integratedTerminal"},
+    {"name": "2. Predict (pick an image)", "type": "debugpy", "request": "launch",
+     "program": "${workspaceFolder}/src/predict.py", "args": ["--image", "${input:imagePath}"], "console": "integratedTerminal"},
+    {"name": "3. Evaluate folder (class subfolders)", "type": "debugpy", "request": "launch",
+     "program": "${workspaceFolder}/src/evaluate.py", "args": ["--data_dir", "${input:dataDir}"], "console": "integratedTerminal"}
+    ,{"name": "4. Streamlit app", "type": "debugpy", "request": "launch", "module": "streamlit",
+     "args": ["run", "${workspaceFolder}/app.py"], "console": "integratedTerminal"}
+  ],
+  "inputs": [
+    {"id": "imagePath", "type": "promptString", "description": "Path to image or folder", "default": "test_images/sample.jpg"},
+    {"id": "dataDir", "type": "promptString", "description": "Folder with one subfolder per class", "default": "test_images"}
+  ]
+}

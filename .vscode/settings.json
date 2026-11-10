@@ -1,0 +1,4 @@
+{
+  "python.analysis.extraPaths": ["./src"],
+  "terminal.integrated.cwd": "${workspaceFolder}"
+}
